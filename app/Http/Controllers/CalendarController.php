@@ -30,11 +30,11 @@ class CalendarController extends Controller
 
     // Append query parameters to the '/me/events' url
     //$getEventsUrl = '/me/events?'.http_build_query($queryParams);
-    //$getEventsUrl = '/deviceManagement/managedDevices';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
-    $getEventsUrl = '/deviceManagement/deviceConfigurations';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
+    $getEventsUrl = '/deviceManagement/managedDevices';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
+    //$getEventsUrl = '/deviceManagement/deviceConfigurations';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
 
     $devices = $graph->createRequest('GET', $getEventsUrl)
-      ->setReturnType(Model\DeviceConfiguration::class)//ManagedDevice::class)
+      ->setReturnType(Model\ManagedDevice::class)
       ->execute();
 
       $viewData['events'] = $devices;

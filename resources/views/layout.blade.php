@@ -75,8 +75,9 @@
           @endif
         </div>
       @endif
-
-      @yield('content')
+      <div class="contaier-fluid">
+        @yield('content')
+      </div>
     </main>
   </body>
 </html>
