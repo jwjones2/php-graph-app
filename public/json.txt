@@ -1,0 +1,1 @@
+@odata.type::#microsoft.graph.windows10CustomConfiguration\nid::1e1144d9-4cd8-44ef-aa82-240e199bfc6f\nlastModifiedDateTime::2019-04-17T18:13:27.9526494Z\ncreatedDateTime::2019-04-16T05:12:50.1282122Z\ndescription::This will prevent the creationof Edge browser shortcut on the desktop\ndisplayName::Windows 10 Edge Customization\nversion::6\n
