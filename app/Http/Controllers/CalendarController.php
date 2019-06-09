@@ -30,15 +30,29 @@ class CalendarController extends Controller
 
     // Append query parameters to the '/me/events' url
     //$getEventsUrl = '/me/events?'.http_build_query($queryParams);
-    $getEventsUrl = '/deviceManagement/managedDevices';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
-    //$getEventsUrl = '/deviceManagement/deviceConfigurations';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
+    //$getEventsUrl = '/deviceManagement/managedDevices';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
+    $getEventsUrl = '/deviceManagement/deviceConfigurations';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
 
     $devices = $graph->createRequest('GET', $getEventsUrl)
-      ->setReturnType(Model\ManagedDevice::class)
+      //->setReturnType(Model\DeviceConfiguration::class)
       ->execute();
 
-      $viewData['events'] = $devices;
+      $json = $devices->getBody();
+
+      //var_dump($json);
+      /*
+      //echo "<h1>" . $json['value'][0]['@odata.type'] . "</h1>";
+      foreach ( $json['value'][0] as $key => $value) {
+        //fwrite($f, print_r($key));
+        echo "<h1>KEY: $key </h1>"; //, VALUE: $value<h1>";
+        //echo "<h1>" . gettype($value) . "</h1>";
+        if ( gettype($value) != "array" ) {
+          echo "<h1 style='color:red'>VALUE: $value</h1>";
+        }
+      */
+
+      //$viewData['events'] = $devices;
       //file_put_contents('return.txt', $events);
-      return view('calendar', $viewData);
+      return view('calendar')->with('data', $json);
   }
 }
