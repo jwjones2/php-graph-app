@@ -33,6 +33,8 @@ class CalendarController extends Controller
     //$getEventsUrl = '/deviceManagement/managedDevices';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
     $getEventsUrl = '/deviceManagement/deviceConfigurations';//'/deviceManagement/deviceCompliancePolicySettingStateSummaries';
 
+    $search_name = 'Device Configurations';
+
     $devices = $graph->createRequest('GET', $getEventsUrl)
       //->setReturnType(Model\DeviceConfiguration::class)
       ->execute();
@@ -53,6 +55,36 @@ class CalendarController extends Controller
 
       //$viewData['events'] = $devices;
       //file_put_contents('return.txt', $events);
-      return view('calendar')->with('data', $json);
+      return view('calendar')->with([
+        'data' => $json,
+        'search_name' => $search_name
+      ]);
+  }
+
+  public static function check_value( $val ) {
+    if ( $val == true ) {
+      return "true";
+    }
+    if ( $val == false ) {
+      return "false";
+    }
+
+    if ( gettype($val) == "array" && count($val) == 0 ) {
+      return "Not Set";
+    }
+
+    if ( $val == null ) {
+      return "Not Set";
+    }
+
+    return $val;
+  }
+
+  public static function convert_camel_case ( $text ) {
+    $arr = str_split($text);
+    $title_case = '';
+    foreach($arr as $letter) {
+      
+    }
   }
 }
