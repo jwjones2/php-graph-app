@@ -11,9 +11,9 @@
               <a href="/" class="nav-link {{$_SERVER['REQUEST_URI'] == '/' ? ' active' : ''}}">Home</a>
             </li>
             @if(isset($userName))
-              <li class="nav-item" data-turbolinks="false">
-                <a href="/calendar" class="nav-link{{$_SERVER['REQUEST_URI'] == '/calendar' ? ' active' : ''}}">Calendar</a>
-              </li>
+            <li class="nav-item">
+              <a href="/searches" class="nav-link {{$_SERVER['REQUEST_URI'] == '/searches' ? ' active' : ''}}">Manage Custom Searches</a>
+            </li>
             @endif
           </ul>
           <ul class="navbar-nav justify-content-end">

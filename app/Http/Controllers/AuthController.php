@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\TokenStore\TokenCache;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Session;   
+
 use Microsoft\Graph\Graph;
 use Microsoft\Graph\Model;
 
@@ -29,7 +31,7 @@ class AuthController extends Controller
     // Save client state so we can validate in callback
     session(['oauthState' => $oauthClient->getState()]);
 
-    file_put_contents('data.txt', $oauthClient->getState());
+    //file_put_contents('data.txt', $oauthClient->getState());
 
     // Redirect to AAD signin page
     return redirect()->away($authUrl);
@@ -38,7 +40,7 @@ class AuthController extends Controller
   public function callback(Request $request)
   {
     // Validate state
-    $expectedState = file_get_contents('data.txt');//session('oauthState');
+    $expectedState = session('oauthState');//file_get_contents('data.txt');
     $request->session()->forget('oauthState');
     $providedState = $request->query('state');
 
@@ -70,6 +72,7 @@ class AuthController extends Controller
         ]);
         
         file_put_contents('token.txt', $accessToken);
+        file_put_contents('timeout.txt', time());
       
         $graph = new Graph();
         $graph->setAccessToken($accessToken->getToken());

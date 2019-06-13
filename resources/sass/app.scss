@@ -7,6 +7,10 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+.slide-down {
+    margin-top: 75px;
+}
+
 #myBtn {
     display: none; /* Hidden by default */
     position: fixed; /* Fixed/sticky position */
@@ -26,3 +30,10 @@
   #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
   }
+
+  a.anchor {
+    display: block;
+    position: relative;
+    top: -50px;
+    visibility: hidden;
+}

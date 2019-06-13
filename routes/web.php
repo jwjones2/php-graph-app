@@ -15,6 +15,7 @@ Route::get('/', 'HomeController@welcome');
 Route::get('/signin', 'AuthController@signin');
 Route::get('/callback', 'AuthController@callback');
 Route::get('/signout', 'AuthController@signout');
-Route::get('/calendar', 'CalendarController@calendar');
+Route::get('/search/{id}', 'CalendarController@calendar');
 Route::get('/test', 'HomeController@test1');
 Route::get('/test2', 'HomeController@test2');
+Route::resource('searches', 'SearchController');

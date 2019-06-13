@@ -29,7 +29,7 @@
       
     </main>
 
-    <div class="contaier-fluid">
+    <div class="contaier-fluid slide-down">
         @yield('content')
       </div>
   </body>

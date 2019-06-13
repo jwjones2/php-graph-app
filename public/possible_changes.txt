@@ -1,0 +1,18 @@
+<div class="col-4">
+        <ul class="list-group position-fixed" style="width: 33%;">
+        @for($c = 0; $c < count($data['value']); $c++ )
+            <a href="#{{$data['value'][$c]['id']}}" class="list-group-item">{{$data['value'][$c]['displayName']}}</a>
+        @endfor
+        </ul>
+    </div>
+
+    <select class="list-group" id="searchValues" onchange="goToSection(this.value)">
+@for($c = 0; $c < count($data['value']); $c++ )
+            <option value="#{{$data['value'][$c]['id']}}" class="list-group-item">{{$data['value'][$c]['displayName']}}</option>
+        @endfor
+</select>
+<script>
+    function goToSection($val) {
+        window.location = $val;
+    }
+</script>

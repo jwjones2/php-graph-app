@@ -1,4 +1,3 @@
 
 get rid #
-change camel case 
 search parameters

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Search;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,9 @@ class HomeController extends Controller
   {
     $viewData = $this->loadViewData();
 
-    return view('welcome', $viewData);
+    $searches = Search::all();
+
+    return view('welcome', $viewData)->with('searches', $searches);
   }
 
   public function test1(){
