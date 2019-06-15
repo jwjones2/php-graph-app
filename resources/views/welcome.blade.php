@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<div class="jumbotron">
+<div class="jumbotron text-center">
   <h1>Azure Graph Data Search</h1>
   @if(isset($userName))
     <h4>Welcome {{ $userName }}!</h4>

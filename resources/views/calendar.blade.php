@@ -6,7 +6,7 @@
 
 <div class="row"> 
     <div class="col-4">
-        <ul class="list-group position-fixed" style="width: 33%; overflow-y: scroll;">
+        <ul class="list-group position-fixed" style="width: 33%; overflow-y: scroll; height: 100vh">
         @for($c = 0; $c < count($data['value']); $c++ )
             <a href="#{{$data['value'][$c]['id']}}" class="list-group-item">{{$data['value'][$c][$display_title]}}</a>
         @endfor
